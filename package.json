@@ -1,0 +1,17 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script-dist.js",
+  "scripts": {
+    "build": "webpack-dev-server --entry ./src/app.js  --output-filename ./dist/bundle.js",
+    "build:p": "webpack src/app.js dist/bundle.js --p"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
