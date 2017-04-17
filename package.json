@@ -4,13 +4,20 @@
   "description": "",
   "main": "script-dist.js",
   "scripts": {
-    "build": "webpack-dev-server --entry ./src/app.js  --output-filename ./dist/bundle.js",
-    "build:p": "webpack src/app.js dist/bundle.js --p"
+    "dev": "webpack-dev-server",
+    "prod": "webpack -p"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.4.0",
+    "css-loader": "^0.28.0",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
   }

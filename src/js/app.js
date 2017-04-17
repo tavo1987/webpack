@@ -1,3 +1,5 @@
+import '../sass/style.scss';
+
 let name = "Edwin Gustavo Ramírez navaz";
 var  app = document.querySelector("#app");
 let button = document.querySelector('#button');
