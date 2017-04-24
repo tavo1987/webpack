@@ -2,16 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> </title>
+    <title>Tasks</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .tasks li {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
 
-    <div id="app">
-        <h1 id="title">Título del sitios</h1>
-        <a id="button" href="#">Change to red color</a>
-        <hr>
-        <div class="count-down">
-            <span id="seconds" class="seconds">10</span> Segundos
+    <div id="app" class="container text-left">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="text-left">New Task</h2>
+                <br>
+                <form class="form">
+                    <textarea class="form-control" name="task" id="new-task"></textarea><br>
+                    <button id="add-button" class="btn btn-primary btn-block" type="submit">Add</button>
+                </form>
+                <hr>
+                <h2>Task List</h2>
+                <ul class="tasks" id='tasks-list'>
+
+                </ul>
+            </div>
         </div>
     </div>
     <script src="dist/js/bundle.js"></script>
