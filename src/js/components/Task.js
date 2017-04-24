@@ -3,11 +3,12 @@ export default class Task {
 
     constructor() {
         this.list = [];
-        this.isComplete = false;
     }
 
-    complete() {
-        this.isComplete = !this.isComplete;
+    complete(index) {
+        let task = this.list[index];
+        task.isComplete = !task.isComplete;
+        this.render();
     }
 
     add(task) {
@@ -16,20 +17,20 @@ export default class Task {
     }
 
     remove(index) {
-        console.log(index);
         this.list.splice(index, 1);
         this.render();
     }
 
     render() {
-        let tasks = this.list.map( (task, index) => `
-            <li>
-                ${task}
-                <span class="index hidden">${index}</span>
-                <span class="btn btn-xs btn-success">Complete</span>
-                <span class="delete-button btn btn-xs btn-danger">Delete</span>
-            </li>
-        `).reduce( (a, b) => a + b, '');
+        let tasks = this.list.map( (task, index) => {
+            return `<li>
+                ${task.text}
+                ${task.isComplete
+                    ? '<span class="complete-button btn btn-xs btn-success"><i class="glyphicon glyphicon-ok"></i> Completed</span>'
+                    :'<span class="complete-button btn btn-xs btn-warning"><i class="glyphicon glyphicon-time"></i> Complete</span>'}
+                <span class="delete-button btn btn-xs btn-danger glyphicon glyphicon-remove"></span>
+            </li>`
+        }).reduce( (a, b) => a + b, '');
 
         let tasksList = document.getElementById('tasks-list');
         tasksList.innerHTML = tasks;

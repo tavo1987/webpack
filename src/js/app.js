@@ -10,16 +10,26 @@ let tasksListContainer = document.getElementById('tasks-list');
 
 addButton.addEventListener('click', event => {
     event.preventDefault();
-    tasksList.add(newTask.value);
+    tasksList.add({
+        text: newTask.value,
+        isComplete: false,
+    });
+
     newTask.value = '';
 });
 
+function getTaskIndex(e) {
+    let containerList = document.getElementById('tasks-list'),
+        listItem      = e.target.parentElement,
+        listItems     = [...containerList.querySelectorAll('li')];
+        return listItems.indexOf(listItem);
+}
+
 tasksListContainer.addEventListener('click', e => {
     if (e.target.classList[0] === 'delete-button') {
-        let containerList = document.getElementById('tasks-list'),
-            listItem      = e.target.parentElement,
-            listItems     = [...containerList.querySelectorAll('li')],
-            index         = listItems.indexOf(listItem);
-        tasksList.remove(index);
+        tasksList.remove(getTaskIndex(e));
+    }
+    if (e.target.classList[0] === 'complete-button') {
+        tasksList.complete(getTaskIndex(e));
     }
 });
